@@ -1,0 +1,4 @@
+export function formatDate(value: string | null): string { return value ? new Date(value).toLocaleString() : 'Unknown date' }
+export function formatShortDate(value: string | null): string { return value ? new Date(value).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown' }
+export function formatMonthKey(value: string | null): string { return value ? new Date(value).toLocaleDateString(undefined, { year: 'numeric', month: 'long' }) : 'Unknown month' }
+export function formatDuration(seconds: number | null): string { if (!seconds || seconds <= 0) return '—'; const total = Math.round(seconds); const hours = Math.floor(total / 3600); const minutes = Math.floor((total % 3600) / 60); const secs = total % 60; return hours > 0 ? `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}` : `${minutes}:${secs.toString().padStart(2, '0')}` }

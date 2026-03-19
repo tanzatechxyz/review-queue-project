@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      APP_DB_PATH: /data/review_queue.db
+      APP_ROOT_FOLDER: /videos
+      APP_DATA_DIR: /data
+      APP_WATCHED_THRESHOLD_PERCENT: 95
+      APP_SORT_PRIORITY: filename,metadata,filesystem
+      APP_AUTO_ADVANCE_ON_DONE: "true"
+      APP_AUTO_ADVANCE_ON_END: "true"
+      APP_GENERATE_THUMBNAILS: "false"
+      APP_AUTH_ENABLED: "false"
+      APP_USERNAME: admin
+      APP_PASSWORD: changeme
+      APP_SECRET_KEY: replace-me
+      APP_CORS_ORIGINS: http://localhost:8080
+      APP_AUTO_SCAN_ON_STARTUP: "true"
+    volumes:
+      - ./data:/data
+      - ./sample-videos:/videos:ro
