@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export PYTHONPATH="/app/backend:${PYTHONPATH:-}"
+
 APP_DATA_DIR="${APP_DATA_DIR:-/data}"
 APP_DB_PATH="${APP_DB_PATH:-/data/review_queue.db}"
 
