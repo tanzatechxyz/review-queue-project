@@ -1,5 +1,7 @@
 # Instagram Review Queue
 
+CHATGPT MADE
+
 A self-hosted, browser-based review app for very large folders of Instagram video files stored on a NAS.
 
 This project is intentionally **not** a media-library clone. It is built to behave like a chronological review inbox:
